@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     resources :machines, only: [:index]
   end
 
-  resources :machines, only: [:show]
+  get '/owners', to: 'owners#index'
+  get '/owners/:id', to: 'owners#show'
+
+  get '/owners/:owner_id/machines', to: 'machines#index'
+  get '/owners/:owner_id/machines/:machine_id', to: 'machines#show'
 end

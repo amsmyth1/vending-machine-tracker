@@ -2,6 +2,7 @@
 
 <ul>
   <% @owners.each do |owner| %>
-    <li><%= owner.name %></li>
+    <a href="/owners/<%= owner.id %>"><%= owner.name %></a>
+    <br>
   <% end %>
 </ul>

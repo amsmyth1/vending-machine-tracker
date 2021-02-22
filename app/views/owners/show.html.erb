@@ -1,0 +1,8 @@
+<h1><%=@owner.name %> Information</h1>
+
+<h4>Machines:</h4>
+
+<% @owner.machines.each do |machine| %>
+  <a href="/owners/<%= @owner.id %>/machines/<%= machine.id %>"><%= machine.location %></a>
+  <br>
+<% end  %>
