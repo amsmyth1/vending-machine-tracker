@@ -19,20 +19,20 @@ RSpec.describe "machine show page" do
     @cliff = Snack.create!({name: "Cliff Bar", price: 4.00})
     @fruit = Snack.create!({name: "Dried apples", price: 2.00})
     @peas = Snack.create!({name: "Wasabi peas", price: 5.00})
+
+    @machine_1.snack << @twix
+    @machine_1.snack << @snickers
+    @machine_1.snack << @cheetos
+    @machine_1.snack << @lays
+
+    @machine_2.snack << @almonds
+    @machine_2.snack << @cliff
+    @machine_2.snack << @fruit
+    @machine_2.snack << @peas
   end
 
   describe "displays vending machine information" do
     it "can display the associated snacks and their price" do
-      @machine_1.snack << @twix
-      @machine_1.snack << @snickers
-      @machine_1.snack << @cheetos
-      @machine_1.snack << @lays
-
-      @machine_2.snack << @almonds
-      @machine_2.snack << @cliff
-      @machine_2.snack << @fruit
-      @machine_2.snack << @peas
-
       visit "/owners/#{@owner_1.id}/machines/#{@machine_1.id}"
 
       within ".machine_snacks" do
@@ -57,6 +57,15 @@ RSpec.describe "machine show page" do
         expect(page).to have_content(@fruit.price)
         expect(page).to have_content(@peas.name)
         expect(page).to have_content(@peas.price)
+      end
+    end
+
+    it "can display the average price for all the snacks" do
+      visit "/owners/#{@owner_1.id}/machines/#{@machine_2.id}"
+
+      within ".machine_price_average" do
+        expect(page).to have_content("Average Snack Price:")
+        expect(page).to have_content("$3.50")
       end
     end
   end
