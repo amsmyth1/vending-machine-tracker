@@ -10,4 +10,7 @@ Rails.application.routes.draw do
 
   get '/owners/:owner_id/machines', to: 'machines#index'
   get '/owners/:owner_id/machines/:machine_id', to: 'machines#show'
+
+  get '/snacks/:id', to: 'snacks#show'
+  get '/snacks', to: 'snacks#index'
 end
