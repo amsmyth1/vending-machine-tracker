@@ -45,6 +45,19 @@ RSpec.describe "machine show page" do
         expect(page).to have_content(@lays.name)
         expect(page).to have_content(@lays.price)
       end
+
+      visit "/owners/#{@owner_1.id}/machines/#{@machine_2.id}"
+
+      within ".machine_snacks" do
+        expect(page).to have_content(@almonds.name)
+        expect(page).to have_content(@almonds.price)
+        expect(page).to have_content(@cliff.name)
+        expect(page).to have_content(@cliff.price)
+        expect(page).to have_content(@fruit.name)
+        expect(page).to have_content(@fruit.price)
+        expect(page).to have_content(@peas.name)
+        expect(page).to have_content(@peas.price)
+      end
     end
   end
 end
