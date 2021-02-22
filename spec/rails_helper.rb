@@ -8,6 +8,7 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 require 'simplecov'
+require 'support/factory_bot'
 SimpleCov.start
 
 Shoulda::Matchers.configure do |config|

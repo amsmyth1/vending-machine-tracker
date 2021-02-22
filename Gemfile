@@ -16,12 +16,16 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rspec-pride'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'pry'
   gem 'launchy'
   gem 'simplecov', require: false, group: :test
+  gem 'orderly'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
