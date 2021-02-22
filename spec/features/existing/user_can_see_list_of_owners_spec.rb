@@ -5,7 +5,7 @@ RSpec.describe "When a user visits the owners index", type: :feature do
     Owner.create(name: "Sam's Snacks")
     Owner.create(name: "Drew's Drinks")
 
-    visit owners_path
+    visit "/owners"
 
     expect(page).to have_content("Sam's Snacks")
     expect(page).to have_content("Drew's Drinks")

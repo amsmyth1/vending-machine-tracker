@@ -33,7 +33,7 @@ RSpec.describe "machine show page" do
       @machine_2.snack << @fruit
       @machine_2.snack << @peas
 
-      visit "/machines/#{@machine_1.id}"
+      visit "/owners/#{@owner_1.id}/machines/#{@machine_1.id}"
 
       within ".machine_snacks" do
         expect(page).to have_content(@twix.name)
